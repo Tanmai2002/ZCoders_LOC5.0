@@ -38,7 +38,7 @@ constructor(
     TransactionStruct[] transactions;
     TransactionStruct[] minted;
     ProductStruct [] Product;
-    struct Productstruct{
+    struct ProductStruct{
       uint256 prodId;
       string BrandName;
       string title;
@@ -48,11 +48,18 @@ constructor(
 
     }
 
+    struct TransactionStruct {
+        uint256 id;
+        address owner;
+        uint256 cost;
+        string title;
+        string description;
+        string metadataURI;
+        uint256 timestamp;
+    }
 
-    function mintProduct(string memory title,
-      string memory description,
-      string memory metadataURI,
-      uint256 salesPrice){
+
+    function mintProduct(string memory title,string memory description,string memory metadataURI,uint256 salesPrice) external payable{
         require(msg.value >= cost, msg.value.toString());
         require(existingURIs[metadataURI] == 0, "This NFT is already minted!");
         require(msg.sender != owner(), "Sales not allowed!");
@@ -84,18 +91,18 @@ constructor(
         holderOf[supply] = msg.sender;
 
     }
-    function sellProduct(){
+    // function sellProduct(){
 
 
-    }
+    // }
 
-    function transferProduct(){
+    // function transferProduct(){
 
-    }
+    // }
 
-    function changePrice(){
+    // function changePrice(){
 
-    }
+    // }
     // function payToMint(
     //     string memory title,
     //     string memory description,
