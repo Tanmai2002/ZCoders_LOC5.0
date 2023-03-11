@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar } from "./Navbar";
 import { Slider } from "./Slider";
+import Typewriter from "typewriter-effect";
 
 export const Hero = () => {
   return (
@@ -14,12 +15,18 @@ export const Hero = () => {
               <img src="img/Logo.svg" alt="Logo" />
             </div>
             <div className="">
-              <h1 className="font-mono text-7xl">Ensure Your</h1>
-              <h1 className="font-mono text-8xl">Luxury</h1>
-              <p className="text-3xl">
+              <h1 className="font-mono text-7xl font-bold">Ensure Your</h1>
+              <div className="text-8xl mb-10 font-bold text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-600 to-black">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter.typeString("LUXURY").start();
+                  }}
+                />
+              </div>
+              <p className="text-3xl mb-5 font-semibold">
                 Enjoy Authentic Luxury products exclusively minted for You
               </p>
-              <button className="bg-[#000] text-white rounded-md hover:bg-[#353535] my-3 p-3">
+              <button className="bg-[#000] text-white text-2xl font-extrabold px-20 mt-10 rounded-md hover:bg-[#ffffff] hover:text-black my-3 p-3">
                 CONNECT
               </button>
             </div>
@@ -28,7 +35,7 @@ export const Hero = () => {
 
         {/* right */}
         <div className="basis-1/2 h-full flex justify-center items-center w-full">
-            <Slider></Slider>
+          <Slider></Slider>
         </div>
       </div>
     </div>
