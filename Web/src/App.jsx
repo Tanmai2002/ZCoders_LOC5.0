@@ -1,9 +1,15 @@
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { Web3Context } from './context/Web3Context'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const {connectToMetamask}=useContext(Web3Context);
+  useEffect(() => {
+  connectToMetamask();
+  }, [])
+  
 
   return (
     <div className="App">
