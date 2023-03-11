@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
-
+import "./ServerContract.sol";
+import "./Tracking.sol";
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
@@ -9,10 +10,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Brand is ERC721Enumerable, Ownable {
     using Strings for uint256;
+    
 
 constructor(
-   string memory _name,
-   string memory _symbol
+  string memory _name,
+  string memory _symbol
 ) ERC721(_name, _symbol) {
   
 }
@@ -31,6 +33,21 @@ constructor(
         uint256 timestamp
     );
 
+    
+
+    TransactionStruct[] transactions;
+    TransactionStruct[] minted;
+    ProductStruct [] Product;
+    struct ProductStruct{
+      uint256 prodId;
+      string BrandName;
+      string title;
+      string description;
+      uint256 currentCost;
+      address prod_Owner;
+
+    }
+
     struct TransactionStruct {
         uint256 id;
         address owner;
@@ -41,23 +58,11 @@ constructor(
         uint256 timestamp;
     }
 
-    TransactionStruct[] transactions;
-    TransactionStruct[] minted;
 
-
-    function payToMint(
-        string memory title,
-        string memory description,
-        string memory metadataURI,
-        uint256 salesPrice
-    ) external payable {
-
+    function mintProduct(string memory title,string memory description,string memory metadataURI,uint256 salesPrice) external payable{
         require(msg.value >= cost, msg.value.toString());
         require(existingURIs[metadataURI] == 0, "This NFT is already minted!");
         require(msg.sender != owner(), "Sales not allowed!");
-        
-
-        
 
         supply++;
 
@@ -72,7 +77,7 @@ constructor(
                 block.timestamp
             )
         );
-
+        payTo(owner(), msg.value);
         emit Sale(
             supply,
             msg.sender,
@@ -84,9 +89,62 @@ constructor(
         _safeMint(msg.sender, supply);
         existingURIs[metadataURI] = 1;
         holderOf[supply] = msg.sender;
-    }
 
-    function payToBuy(uint256 id) external payable {
+    }
+    // function sellProduct(){
+
+
+    // }
+
+    // function transferProduct(){
+
+    // }
+
+    // function changePrice(){
+
+    // }
+    // function payToMint(
+    //     string memory title,
+    //     string memory description,
+    //     string memory metadataURI,
+    //     uint256 salesPrice
+    // ) external payable {
+
+    //     require(msg.value >= cost, msg.value.toString());
+    //     require(existingURIs[metadataURI] == 0, "This NFT is already minted!");
+    //     require(msg.sender != owner(), "Sales not allowed!");
+        
+
+        
+
+        // supply++;
+
+        // minted.push(
+        //     TransactionStruct(
+        //         supply,
+        //         msg.sender,
+        //         salesPrice,
+        //         title,
+        //         description,
+        //         metadataURI,
+        //         block.timestamp
+        //     )
+        // );
+
+        // emit Sale(
+        //     supply,
+        //     msg.sender,
+        //     msg.value,
+        //     metadataURI,
+        //     block.timestamp
+        // );
+
+        // _safeMint(msg.sender, supply);
+        // existingURIs[metadataURI] = 1;
+        // holderOf[supply] = msg.sender;
+    // }
+
+    function sellProduct(uint256 id) external payable {
         require(msg.value >= minted[id - 1].cost, "Ether too low for purchase!");
         require(msg.sender != minted[id - 1].owner, "Operation Not Allowed!");
 
