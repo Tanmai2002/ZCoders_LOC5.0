@@ -7,8 +7,8 @@ export const Latest = () => {
         <div className='snap-center h-screen items-center justify-center'>
             <NewNavbar></NewNavbar>
             <div className='h-fit flex px-32 pt-5'>
-                <div className='basis-1/5'>ok</div>
-                <div className='basis-4/5'>ok</div>
+                <div className='basis-1/5'>Brands</div>
+                <div className='basis-4/5'>Grid images</div>
 
             </div>
         </div>
