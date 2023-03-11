@@ -8,7 +8,7 @@ export const Hero = () => {
       {/* <Navbar></Navbar> */}
       <div className="h-full snap-center flex flex-row w-screen px-10 p-2 justify-between">
         {/* left */}
-        <div className="basis-1/2 flex flex-col justify-center items-center gap-10">
+        <div className="basis-1/2 flex flex-col justify-center items-center gap-10 pb-40">
           <div className="w-3/5">
             <div className="pb-40">
               <img src="img/Logo.svg" alt="Logo" />
