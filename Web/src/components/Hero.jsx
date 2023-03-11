@@ -1,8 +1,29 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { Navbar } from "./Navbar";
 import { Slider } from "./Slider";
+import Typewriter from "typewriter-effect";
+import { CardSection } from "./CardSection";
 
 export const Hero = () => {
+
+  const [connected,setConnected] = useState(false)
+  const [route,setRoute]=useState("Latest Releases")
+
+
+  if(connected){
+    return (
+      <div className=" snap-center h-screen items-center justify-center">
+        <Navbar setConnected={setConnected} setRoute={setRoute} ></Navbar>
+        <div className="h-full snap-center flex flex-col relative w-screen px-10 p-2 justify-center items-center">
+          {/* up */}
+          <div className="basis-1/2">
+            <CardSection heading={`${route}`}></CardSection>
+          </div>
+          {/* down */}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex flex-col h-screen snap-center items-center justify-center">
       {/* <Navbar></Navbar> */}
@@ -14,12 +35,20 @@ export const Hero = () => {
               <img src="img/Logo.svg" alt="Logo" />
             </div>
             <div className="">
-              <h1 className="font-mono text-7xl">Ensure Your</h1>
-              <h1 className="font-mono text-8xl">Luxury</h1>
-              <p className="text-3xl">
+              <h1 className="font-mono text-7xl font-bold">Ensure Your</h1>
+              <div className="text-8xl mb-10 font-bold text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-600 to-black">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter.typeString("LUXURY").start();
+                  }}
+                />
+              </div>
+              <p className="text-3xl mb-5 font-semibold">
                 Enjoy Authentic Luxury products exclusively minted for You
               </p>
-              <button className="bg-[#000] text-white rounded-md hover:bg-[#353535] my-3 p-3">
+              <button onClick={()=>{
+                setConnected(true)
+              }} className="bg-[#000] text-white text-2xl font-extrabold px-20 mt-10 rounded-md hover:bg-[#ffffff] hover:text-black my-3 p-3">
                 CONNECT
               </button>
             </div>
@@ -28,7 +57,7 @@ export const Hero = () => {
 
         {/* right */}
         <div className="basis-1/2 h-full flex justify-center items-center w-full">
-            <Slider></Slider>
+          <Slider></Slider>
         </div>
       </div>
     </div>
