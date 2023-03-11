@@ -1,9 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { CurrentOrders } from './components/CurrentOrders'
 import { Home } from './components/Home'
+import { PastOrders } from './components/PastOrders'
 import { Profile } from './components/Profile'
-import { HOME_PAGE, PROFILE_PAGE } from './constants/Routes'
+import { CURRENT_ORDERS_PAGE, HOME_PAGE, PAST_ORDERS_PAGE, PROFILE_PAGE } from './constants/Routes'
 import './index.css'
 
 const router = createBrowserRouter([
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
   {
     path:PROFILE_PAGE,
     element:<Profile></Profile>
+  },
+  {
+    path:CURRENT_ORDERS_PAGE,
+    element:<CurrentOrders></CurrentOrders>
+  },
+  {
+    path:PAST_ORDERS_PAGE,
+    element:<PastOrders></PastOrders>
   }
 ])
 
