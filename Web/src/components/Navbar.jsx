@@ -11,8 +11,12 @@ export const Navbar = params => {
           <li className='cursor-pointer'>
             <button onClick={()=>{params.setRoute('Latest releases');console.log("shva")}}>Home</button>
           </li>
-          <li onClick={()=>{params.setRoute('Current Orders')}} className='cursor-pointer'>Current Orders</li>
-          <li onClick={()=>{params.setRoute('Past Orders')}} className='cursor-pointer'>Past Orders</li>
+          <li onClick={()=>{params.setRoute('Current Orders')}} className='cursor-pointer'>
+            <button onClick={()=>{params.setRoute('Latest releases');console.log("shva")}}>Current Orders</button>
+          </li>
+          <li onClick={()=>{params.setRoute('Past Orders')}} className='cursor-pointer'>
+            <button onClick={()=>{params.setRoute('Latest releases');console.log("shva")}}>Past Orders</button>
+          </li>
         </ul>
       </div>
       <div className='flex items-center gap-5'>
