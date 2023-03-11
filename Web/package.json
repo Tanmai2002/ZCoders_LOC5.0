@@ -18,9 +18,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.9.0",
+    "rc-dropdown": "^4.0.1",
+    "rc-menu": "^9.8.2",
+    "react-js-dropdavn": "^1.0.4",
     "react-router-dom": "^6.9.0",
     "react-simple-image-slider": "^2.4.1",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
