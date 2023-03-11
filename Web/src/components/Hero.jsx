@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Web3Context } from "../context/Web3Context";
 import { Navbar } from "./Navbar";
 import { Slider } from "./Slider";
 
 export const Hero = () => {
+  const {connectToMetamask,mintNft,getAllOrders}=useContext(Web3Context);
   return (
     <div className="flex flex-col h-screen snap-center items-center justify-center">
       {/* <Navbar></Navbar> */}
@@ -19,8 +21,9 @@ export const Hero = () => {
               <p className="text-3xl">
                 Enjoy Authentic Luxury products exclusively minted for You
               </p>
-              <button className="bg-[#000] text-white rounded-md hover:bg-[#353535] my-3 p-3">
+              <button className="bg-[#000] text-white rounded-md hover:bg-[#353535] my-3 p-3" onClick={getAllOrders}>
                 CONNECT
+
               </button>
             </div>
           </div>

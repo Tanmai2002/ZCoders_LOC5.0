@@ -5,10 +5,7 @@ import { Home } from './components/Home'
 import { Profile } from './components/Profile'
 import { HOME_PAGE, PROFILE_PAGE } from './constants/Routes'
 import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+
 import { Web3Context, Web3State } from './context/Web3Context';
 
 
