@@ -12,7 +12,7 @@ export const Hero = () => {
 
   if(connected){
     return (
-      <div className=" snap-center h-screen items-center justify-center">
+      <div className="snap-center h-screen items-center justify-center">
         <Navbar setConnected={setConnected} setRoute={setRoute} ></Navbar>
         <div className="h-full snap-center flex flex-col relative w-screen px-10 p-2 justify-center items-center">
           {/* up */}
