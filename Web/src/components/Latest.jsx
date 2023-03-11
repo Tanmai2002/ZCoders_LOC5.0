@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { NewNavbar } from './NewNavbar'
 
 export const Latest = () => {

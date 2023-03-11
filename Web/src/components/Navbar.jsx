@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+
 export const Navbar = (params) => {
   return (
     <div className="flex bg-white sticky top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 justify-center pt-4 px-30">
