@@ -1,0 +1,125 @@
+{
+  "contractName": "ServerContract",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ServerContract.sol\":\"ServerContract\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ServerContract.sol\":{\"keccak256\":\"0xec13079bd02826900e783b106c73c5dd13fd331a7033f71a9747626707357911\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ad0f455e6c8e42c1d84d2954a99af96c75cb61dcea37dab617b5a37ec5446135\",\"dweb:/ipfs/QmZ9cKweJdLpdM4pcde95emeTT93taNmiRiG5kDjiKnMNy\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220e90c6e684d3e7989535954d8ed7c3639169128a63e7fb3205ffb3d7f8c3f226d64736f6c63430008130033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220e90c6e684d3e7989535954d8ed7c3639169128a63e7fb3205ffb3d7f8c3f226d64736f6c63430008130033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "66:49:15:-:0;;;94:19;;;;;;;;;;66:49;;;;;;",
+  "deployedSourceMap": "66:49:15:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract ServerContract {\n  constructor() {\n  }\n}\n",
+  "sourcePath": "/Users/muskaansharma/Desktop/ZCoders_LOC/ZCoders_LOC5.0/scontracts/contracts/ServerContract.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/ServerContract.sol",
+    "exportedSymbols": {
+      "ServerContract": [
+        3101
+      ]
+    },
+    "id": 3102,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3096,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:32:15"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ServerContract",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 3101,
+        "linearizedBaseContracts": [
+          3101
+        ],
+        "name": "ServerContract",
+        "nameLocation": "75:14:15",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 3099,
+              "nodeType": "Block",
+              "src": "108:5:15",
+              "statements": []
+            },
+            "id": 3100,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3097,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "105:2:15"
+            },
+            "returnParameters": {
+              "id": 3098,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "108:0:15"
+            },
+            "scope": 3101,
+            "src": "94:19:15",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 3102,
+        "src": "66:49:15",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:84:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.19+commit.7dd6d404.Emscripten.clang"
+  },
+  "networks": {
+    "80001": {
+      "events": {},
+      "links": {},
+      "address": "0x96BD8530f2080fF8b6E9ed77BF20Af31166765d2",
+      "transactionHash": "0xef8c17ccfd72a4e0405c94c3bfd6ea36e2ca353cccfc2a0415a02fb380ca2a26"
+    }
+  },
+  "schemaVersion": "3.4.13",
+  "updatedAt": "2023-03-11T15:46:14.943Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
