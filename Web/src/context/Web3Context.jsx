@@ -5,9 +5,19 @@ const Web3Context=React.createContext();
 
 
 const Web3State=(props)=>{
-    const [AccountAddress, setAccountAddress] = useState("")
-    const [errorMessage, setErrorMessage] = useState(null);
+  const [account, setAccount] = useState(null);
+  const [balance, setBalance] = useState(null);
 
+
+
+  
+  useEffect(() => {
+    let init=async()=>{
+      connectToMetamask();
+ 
+    }
+    init();
+  }, [])
     const handleAccountsChanged=(accounts) => {
         // Handle the new accounts, or lack thereof.
         // "accounts" will always be an array, but it can be empty.
@@ -47,7 +57,7 @@ ethereum.removeListener('chainChanged', handleAccountsChanged);
           const res = await window.ethereum.request({
             method: "eth_requestAccounts",
           });
-          // await accountChange(res[0]);
+          await accountsChanged(res[0]);
         } catch (err) {
           console.error(err);
           setErrorMessage("There was a problem connecting to MetaMask");
@@ -57,6 +67,19 @@ ethereum.removeListener('chainChanged', handleAccountsChanged);
       }
     };
 
+    const accountsChanged = async (newAccount) => {
+      setAccount(newAccount);
+      try {
+        const balance = await window.ethereum.request({
+          method: "eth_getBalance",
+          params: [newAccount.toString(), "latest"],
+        });
+        setBalance(ethers.formatEther(balance));
+      } catch (err) {
+        console.error(err);
+        setErrorMessage("There was a problem connecting to MetaMask");
+      }
+    };
    
     async function mintNft(address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8",msg="First Contract",design="This is temp design"){
       try {
@@ -157,6 +180,6 @@ let getAllNFT=async (address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8")=>{
 
     
 
-    return (<Web3Context.Provider value={{connectToMetamask,AccountAddress,mintNft,getAllOrders,getAllNFT}}>{props.children}</Web3Context.Provider>)
+    return (<Web3Context.Provider value={{connectToMetamask,account,balance,getAllOrders,getAllNFT}}>{props.children}</Web3Context.Provider>)
 }
 export {Web3Context,Web3State};

@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { Web3Context } from "../context/Web3Context";
 
 
 export const Navbar = (params) => {
+  const {account,balance}=useContext(Web3Context)
   return (
     <div className="flex bg-white sticky top-0 z-50 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 justify-center pt-4 px-30">
       <div className="w-screen flex justify-between items-center px-20 p-2">
@@ -38,6 +40,10 @@ export const Navbar = (params) => {
         </div>
         <div className="flex items-center gap-5">
           <img src="img/search.png" alt="" className="w-5 cursor-pointer" />
+          <div className="col">
+            <div className="">{account}</div>
+<div>{balance}</div>
+          </div>
           <button
             className="w-24 p-2 bg-transparent cursor-pointer"
             onClick={() => {
