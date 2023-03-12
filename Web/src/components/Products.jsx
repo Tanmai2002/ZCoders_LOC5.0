@@ -2,14 +2,45 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Web3Context } from '../context/Web3Context';
 import { NewNavbar } from "./NewNavbar";
 import { CardSection } from './CardSection';
+import { useParams, useSearchParams } from 'react-router-dom';
 
-export const Products = () => {
+export const Products = (props) => {
+
+  const params= useParams()['category'];
+  console.log(props)
+  console.log(params)
+  
+
+  
+
   const [category, setCategory] = useState("All");
+  
+  const ok=()=>{
+  if(params=='any'){
+    setCategory("All")
+  }else if(params=="shoes"){
+    setCategory("Shoes")
+  }else if(params=="jewellery"){
+    setCategory("Jewellery")
+  }else if(params=="watches"){
+    setCategory("Watches")
+  }else if(params=="eyewear"){
+    setCategory("Eye wear")
+  }else if(params=="homedecor"){
+    setCategory("Home Decor")
+  }else if(params=="fragrancies"){
+    setCategory("Fragrances")
+  }else if(params=="handbags"){
+    setCategory("Hand bags")
+  }else if(params=="clothing"){
+    setCategory("Clothing")
+  }}
   const [NFTs, setNFTs] = useState([]);
   const {getAllNFT} = useContext(Web3Context);
   useEffect(() => {
     getAllNFT().then((res)=>{
       setNFTs(res);
+      setCategory(params)
 
     })
 
@@ -17,7 +48,7 @@ export const Products = () => {
   }, [])
 
   return (
-    <div className="h-screen bg-white text-black snap-y snap-mandatory scroll-smooth">
+    <div className="h-screen bg-white text-black snap-y snap-mandatory scroll-smooth" {...()=>{ok}}>
       <div className="snap-center h-screen items-center justify-center">
         <NewNavbar setCategory={setCategory}></NewNavbar>
         <div className="px-64">
