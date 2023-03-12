@@ -81,7 +81,7 @@ ethereum.removeListener('chainChanged', handleAccountsChanged);
       }
     };
    
-    async function mintNft(address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8",msg="First Contract",design="This is temp design"){
+    async function mintNft(address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8",msg="Gucci Special Edition BackPack",design="Amazing bag with beautiful and elegant design"){
       try {
           
           if(ethereum){
@@ -101,7 +101,7 @@ ethereum.removeListener('chainChanged', handleAccountsChanged);
               let id=await certificateContract.mintProduct(
                 msg,
                 design,
-              "string2",
+              "https://media.gucci.com/content/BlockQuote_Small_290x290/1650551404/BlockQuote_67579710ODT2579_001_Default.jpg",
                "1000",
                {value: ethers.parseEther("0.02")}
             );
@@ -176,10 +176,33 @@ let getAllNFT=async (address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8")=>{
   }
 }
 
+let transferProduct=async (id,address="0x1288331A47E02fb7F7bDAE736205a606c550DcF8")=>{
+  try {
+      
+      if(ethereum){
+          const provider=new ethers.BrowserProvider(ethereum);
+          const signer=await provider.getSigner();
+          const certificateContract=new ethers.Contract(contractAddress,contractABI,signer)
+         
+          let id1=await certificateContract.TransferProduct(id,address);
+          console.log(id1);
+          return(id1);
+
+      }else{
+          alert("No Ethereum Account Connected. Please Connect")
+      }
+  } catch (error) {
+      console.log(error)
+  }
+}
+
 
 
     
 
-    return (<Web3Context.Provider value={{connectToMetamask,account,balance,getAllOrders,getAllNFT}}>{props.children}</Web3Context.Provider>)
+
+    
+
+    return (<Web3Context.Provider value={{connectToMetamask,account,balance,getAllOrders,getAllNFT,transferProduct,mintNft}}>{props.children}</Web3Context.Provider>)
 }
 export {Web3Context,Web3State};
