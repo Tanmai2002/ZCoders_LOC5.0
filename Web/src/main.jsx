@@ -13,6 +13,8 @@ import './index.css'
 
 import { Web3Context, Web3State } from './context/Web3Context';
 import { Hero } from './components/Hero'
+import { Products } from './components/Products'
+import { ProductId } from './components/ProductId'
 
 
 const router = createBrowserRouter([
@@ -44,6 +46,16 @@ const router = createBrowserRouter([
     path:LATES_PAGE,
 
     element:<Latest></Latest>
+  },
+  {
+    path:'/products',
+    element : <Products></Products>,
+    children:[
+      {
+        path:':id',
+        element:<ProductId></ProductId>
+      }
+    ]
   }
 ])
 

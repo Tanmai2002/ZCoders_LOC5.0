@@ -8,7 +8,7 @@ export const CardSection = (props) => {
   return (
     <div className='h-fit w-full flex flex-col rounded-lg gap-2 m-5 mb-20 p-5 bg-slate-100'>
         <p className='text-2xl font-mono font-bold'>{props.heading}</p>
-        <div className='grid grid-cols-5 gap-10'>
+        <div className={`grid grid-cols-${props.cols} gap-10`}>
             {(props.nfts??[]).map((e)=>{
               return <Card prod={e}></Card>
             })}
