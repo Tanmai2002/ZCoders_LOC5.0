@@ -13,6 +13,8 @@ import './index.css'
 
 import { Web3Context, Web3State } from './context/Web3Context';
 import { Hero } from './components/Hero'
+import { Products } from './components/Products'
+import { ProductId } from './components/ProductId'
 
 
 const router = createBrowserRouter([
@@ -44,15 +46,18 @@ const router = createBrowserRouter([
     path:LATES_PAGE,
 
     element:<Latest></Latest>
+  },
+  {
+    path:'/products/:category',
+    element : <Products></Products>,
+   
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ 
     <Web3State>
       
     <RouterProvider router={router} />
     </Web3State>
-
-  </React.StrictMode>,
 )

@@ -48,6 +48,7 @@ export const Hero = () => {
                 Enjoy Authentic Luxury products exclusively minted for You
               </p>
               <button onClick={()=>{
+                connectToMetamask()
                 setConnected(true)
               }} className="bg-[#000] text-white text-2xl font-extrabold px-20 mt-10 rounded-md hover:bg-[#ffffff] hover:text-black my-3 p-3">
                 CONNECT
