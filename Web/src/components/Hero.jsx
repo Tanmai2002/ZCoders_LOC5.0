@@ -1,29 +1,30 @@
-import React, { useState, useCallback } from "react";
+import React, { useContext , useState, useCallback, useEffect} from "react";
+import { Web3Context } from "../context/Web3Context";
 import { Navbar } from "./Navbar";
 import { Slider } from "./Slider";
 import Typewriter from "typewriter-effect";
 import { CardSection } from "./CardSection";
+import { useNavigate } from "react-router";
+import { DASHBOARD_PAGE, HOME_PAGE } from "../constants/Routes";
 
 export const Hero = () => {
+  const {account,connectToMetamask,mintNft,getAllOrders}=useContext(Web3Context);
 
   const [connected,setConnected] = useState(false)
   const [route,setRoute]=useState("Latest Releases")
+  
+  const navigator=useNavigate();
+  useEffect(() => {
+    if(account){
+        navigator(DASHBOARD_PAGE);
+      
+    }else{
+      navigator(HOME_PAGE);
+    }
+  }, [account])
+  
 
-
-  if(connected){
-    return (
-      <div className="snap-center h-screen items-center justify-center">
-        <Navbar setConnected={setConnected} setRoute={setRoute} ></Navbar>
-        <div className="h-full snap-center flex flex-col relative w-screen px-10 p-2 justify-center items-center">
-          {/* up */}
-          <div className="basis-1/2">
-            <CardSection heading={`${route}`}></CardSection>
-          </div>
-          {/* down */}
-        </div>
-      </div>
-    );
-  }
+  
   return (
     <div className="flex flex-col h-screen snap-center items-center justify-center">
       {/* <Navbar></Navbar> */}
@@ -50,6 +51,7 @@ export const Hero = () => {
                 setConnected(true)
               }} className="bg-[#000] text-white text-2xl font-extrabold px-20 mt-10 rounded-md hover:bg-[#ffffff] hover:text-black my-3 p-3">
                 CONNECT
+
               </button>
             </div>
           </div>
