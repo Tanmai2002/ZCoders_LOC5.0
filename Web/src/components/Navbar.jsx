@@ -13,7 +13,6 @@ export const Navbar = (params) => {
               <button
                 onClick={() => {
                   params.setRoute("Latest releases");
-                  console.log("shva");
                 }}
               >
                 Home
@@ -40,17 +39,9 @@ export const Navbar = (params) => {
         <div className="flex items-center gap-5">
           <img src="img/search.png" alt="" className="w-5 cursor-pointer" />
           <div className="col">
-            <div className="">{account}</div>
-            <div>{balance}</div>
+            <div className="">You : {account}</div>
           </div>
-          <button
-            className="w-24 p-2 bg-transparent hover:bg-black hover:text-white rounded-md cursor-pointer"
-            onClick={() => {
-              params.setConnected(false);
-            }}
-          >
-            Log Out
-          </button>
+          <div>Your Balance : {balance}</div>
         </div>
       </div>
     </div>

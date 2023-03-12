@@ -60,11 +60,9 @@ const router = createBrowserRouter([
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ 
     <Web3State>
       
     <RouterProvider router={router} />
     </Web3State>
-
-  </React.StrictMode>,
 )

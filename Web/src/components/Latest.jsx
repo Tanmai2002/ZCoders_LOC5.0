@@ -27,6 +27,7 @@ export const Latest = () => {
           {/* up */}
           <div className="basis-3/4">
             <CardSection heading={`Recent Orders`} nfts={NFTs} cols={4}></CardSection>
+            <a href="/products" className='text-3xl'>See More</a>
           </div>
           {/* down */}
         </div>
