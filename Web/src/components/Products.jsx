@@ -40,7 +40,7 @@ export const Products = () => {
               <p className="text-2xl w-full py-3 text-center">Brand 4</p>
             </div>
             <div className="basis-4/5">
-              <CardSection heading={`Recent Orders`} nfts={[1,2,3,4,5,6,7,8,9,10]} cols={4}></CardSection>
+              <CardSection heading={`Recent Orders`} nfts={NFTs} cols={4}></CardSection>
             </div>
           </div>
         </div>

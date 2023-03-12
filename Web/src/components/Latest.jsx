@@ -23,10 +23,10 @@ export const Latest = () => {
             {/* <NewNavbar></NewNavbar> */}
             <div className="snap-center h-screen items-center justify-center">
         {/* <Navbar setConnected={setConnected} setRoute={setRoute} ></Navbar> */}
-        <div className="h-full snap-center flex flex-col relative w-screen px-10 p-2 justify-center items-center">
+        <div className="h-full snap-center flex relative w-screen px-10 p-2 justify-center items-center">
           {/* up */}
-          <div className="basis-1/2">
-            <CardSection heading={`Recent Orders`} nfts={[1,2,3]} cols={5}></CardSection>
+          <div className="basis-3/4">
+            <CardSection heading={`Recent Orders`} nfts={NFTs} cols={4}></CardSection>
           </div>
           {/* down */}
         </div>

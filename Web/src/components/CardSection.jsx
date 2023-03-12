@@ -2,7 +2,7 @@ import React from 'react'
 import { Card } from './Card'
 
 export const CardSection = (props) => {
-  // console.log(props);
+  console.log(props);
   // const route=(props.heading=="Latest releases")?"latest":(props.heading=="Current Orders")?"current":"past";
 
   return (
